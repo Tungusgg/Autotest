@@ -22,10 +22,9 @@ public class NiceKlass {
         int n = random.nextInt(100) + 1;
         String email = "testqa" + n + "@gmail.com";
         System.out.println(email);
-        driver.findElement(By.name("auth_email")).sendKeys(email);
-        driver.findElement(By.name("auth_pass")).sendKeys("Gfgf13");
-        driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("form_auth_style")));
-
+        driver.findElement(By.xpath("//input[@type=\"email\"]")).sendKeys(email);
+        driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys("Gfgf13");
+        driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type=\"submit\"]"))).click();
     }
 }
